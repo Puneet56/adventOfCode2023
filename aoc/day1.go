@@ -2,15 +2,35 @@ package aoc
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
 func Day1() {
 	lines := strings.Split(input, "\n")
+	var total int64
 
 	for _, l := range lines {
-		fmt.Println(l)
+		var first string
+		var last string
+
+		for _, v := range strings.Split(l, "") {
+			if v == "1" || v == "2" || v == "3" || v == "4" || v == "5" || v == "6" || v == "7" || v == "8" || v == "9" || v == "0" {
+				if first == "" {
+					first = v
+				} else {
+					last = v
+				}
+			}
+		}
+
+		if last == "" {
+			last = first
+		}
+		n, _:= strconv.ParseInt(fmt.Sprintf("%s%s", first, last), 10, 64)
+		total += n
 	}
+	fmt.Println(total)
 }
 
 var input = `
