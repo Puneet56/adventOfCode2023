@@ -14,6 +14,17 @@ func Day1() {
 		var first string
 		var last string
 
+		l = strings.ReplaceAll(l, "nine", "nine9nine")
+		l = strings.ReplaceAll(l, "eight", "eight8eight")
+		l = strings.ReplaceAll(l, "seven", "seven7seven")
+		l = strings.ReplaceAll(l, "six", "six6six")
+		l = strings.ReplaceAll(l, "five", "five5five")
+		l = strings.ReplaceAll(l, "four", "four4four")
+		l = strings.ReplaceAll(l, "three", "three3three")
+		l = strings.ReplaceAll(l, "two", "two2two")
+		l = strings.ReplaceAll(l, "one", "one1one")
+		l = strings.ReplaceAll(l, "zero", "zero0zero")
+
 		for _, v := range strings.Split(l, "") {
 			if v == "1" || v == "2" || v == "3" || v == "4" || v == "5" || v == "6" || v == "7" || v == "8" || v == "9" || v == "0" {
 				if first == "" {
@@ -27,14 +38,15 @@ func Day1() {
 		if last == "" {
 			last = first
 		}
-		n, _:= strconv.ParseInt(fmt.Sprintf("%s%s", first, last), 10, 64)
+
+		n, _ := strconv.ParseInt(fmt.Sprintf("%s%s", first, last), 10, 64)
+
 		total += n
 	}
 	fmt.Println(total)
 }
 
-var input = `
-threerznlrhtkjp23mtflmbrzq395three
+var input = `threerznlrhtkjp23mtflmbrzq395three
 9sevenvlttm
 3twochzbv
 mdxdlh5six5nqfld9bqzxdqxfour
@@ -1033,5 +1045,4 @@ hthphptmmtwo7sixsevenoneightls
 qxbhjmmqsixfkfn36three6
 eightmkmdtvkctkvptsbckzpnkhpskdmp3
 six2twobgzsfsptlqnine42xtmdprjqc
-pxreightwo7
-`
+pxreightwo7`
